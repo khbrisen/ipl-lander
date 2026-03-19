@@ -1,208 +1,160 @@
-/* IPL Cricket Theme — Babu88 */
-:root {
-  --clr-primary: #1a0a3e;
-  --clr-secondary: #f5a623;
-  --clr-accent: #e94e1b;
-  --clr-green: #2ecc40;
-  --clr-bg: #0d0620;
-  --clr-surface: #1e1245;
-  --clr-text: #f0eef5;
-  --clr-muted: #a8a0c0;
-  --clr-cta: #e94e1b;
-  --clr-cta-hover: #ff6a3a;
-  --font-heading: 'Segoe UI', system-ui, sans-serif;
-  --font-body: 'Segoe UI', system-ui, sans-serif;
-  --max-w: 960px;
-  --radius: 10px;
-}
-
+/* Simple Lander — IPL Cricket / Babu88 */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
-
-body {
-  font-family: var(--font-body);
-  background: var(--clr-bg);
-  color: var(--clr-text);
-  line-height: 1.6;
+html, body {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-.container {
+/* ── Full-viewport hero ──────────────────────────────── */
+.lander {
+  position: relative;
   width: 100%;
-  max-width: var(--max-w);
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* ── Hero ─────────────────────────────────────────────── */
-.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding: 60px 20px 40px;
-  background: linear-gradient(135deg, var(--clr-primary) 0%, #2d1568 50%, var(--clr-primary) 100%);
-  border-bottom: 3px solid var(--clr-secondary);
+  overflow: hidden;
 }
 
-.hero h1 {
-  font-family: var(--font-heading);
-  font-size: clamp(1.8rem, 5vw, 2.8rem);
+.lander-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.lander-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Dark overlay so text pops */
+.lander-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(10, 5, 30, 0.7) 100%
+  );
+}
+
+/* ── Content layer ───────────────────────────────────── */
+.lander-content {
+  position: relative;
+  z-index: 1;
+  padding: 0 24px;
+  max-width: 680px;
+}
+
+.lander-content h1 {
+  font-size: clamp(2rem, 6vw, 3.6rem);
   font-weight: 800;
-  color: var(--clr-secondary);
+  color: #fff;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  line-height: 1.15;
   margin-bottom: 12px;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
-.hero h1 span {
-  color: var(--clr-text);
+.lander-content h1 span {
+  color: #f5a623;
 }
 
-.hero .subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
-  color: var(--clr-muted);
-  margin-bottom: 28px;
+.lander-content .tagline {
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 400;
+  margin-bottom: 40px;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* ── CTA Button ───────────────────────────────────────── */
+/* ── Animated CTA ────────────────────────────────────── */
 .cta-btn {
   display: inline-block;
-  padding: 16px 48px;
-  font-size: 1.15rem;
+  padding: 18px 56px;
+  font-size: 1.2rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
+  letter-spacing: 2px;
   color: #fff;
-  background: linear-gradient(135deg, var(--clr-cta), var(--clr-cta-hover));
+  background: linear-gradient(135deg, #e94e1b, #ff6a3a);
   border: none;
-  border-radius: var(--radius);
+  border-radius: 50px;
   text-decoration: none;
   cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
-  box-shadow: 0 4px 20px rgba(233, 78, 27, 0.4);
+  position: relative;
+  z-index: 1;
+  transition: transform 0.2s ease;
+  box-shadow:
+    0 0 20px rgba(233, 78, 27, 0.5),
+    0 0 60px rgba(233, 78, 27, 0.2);
+  animation: cta-pulse 2s ease-in-out infinite;
 }
 
 .cta-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 28px rgba(233, 78, 27, 0.6);
+  transform: scale(1.06);
+  box-shadow:
+    0 0 30px rgba(233, 78, 27, 0.7),
+    0 0 80px rgba(233, 78, 27, 0.3);
 }
 
-/* ── Sections ─────────────────────────────────────────── */
-section {
-  padding: 48px 20px;
+@keyframes cta-pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 20px rgba(233, 78, 27, 0.5),
+      0 0 60px rgba(233, 78, 27, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 0 35px rgba(233, 78, 27, 0.8),
+      0 0 100px rgba(233, 78, 27, 0.35);
+  }
 }
 
-section h2 {
-  font-family: var(--font-heading);
-  font-size: clamp(1.3rem, 3.5vw, 1.8rem);
-  font-weight: 700;
-  color: var(--clr-secondary);
-  text-align: center;
-  margin-bottom: 24px;
-}
-
-/* ── Features Grid ────────────────────────────────────── */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  max-width: var(--max-w);
-  margin: 0 auto;
-}
-
-.feature-card {
-  background: var(--clr-surface);
-  border-radius: var(--radius);
-  padding: 28px 24px;
-  text-align: center;
-  border: 1px solid rgba(245, 166, 35, 0.15);
-}
-
-/* ── Hero Image ───────────────────────────────────────── */
-.hero-img {
-  width: 100%;
-  max-width: 960px;
-  height: auto;
-  border-radius: var(--radius);
-  margin-bottom: 24px;
-  object-fit: cover;
-}
-
-/* ── Feature Card Image ──────────────────────────────── */
-.feature-img {
-  width: 100%;
-  max-width: 240px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 14px;
-}
-
-.feature-card h3 {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--clr-text);
-  margin-bottom: 8px;
-}
-
-.feature-card p {
-  font-size: 0.9rem;
-  color: var(--clr-muted);
-  line-height: 1.5;
-}
-
-/* ── Video Placeholder ────────────────────────────────── */
-.video-wrapper {
-  max-width: 640px;
-  margin: 0 auto 32px;
-  aspect-ratio: 16 / 9;
-  background: var(--clr-surface);
-  border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid rgba(245, 166, 35, 0.2);
-  color: var(--clr-muted);
-  font-size: 0.95rem;
-}
-
-/* ── Bottom CTA Strip ─────────────────────────────────── */
-.cta-strip {
-  text-align: center;
-  padding: 48px 20px;
-  background: linear-gradient(135deg, var(--clr-primary), #2d1568);
-  border-top: 3px solid var(--clr-secondary);
-}
-
-.cta-strip p {
-  font-size: 1.15rem;
-  margin-bottom: 20px;
-  color: var(--clr-muted);
-}
-
-/* ── Footer ───────────────────────────────────────────── */
-footer {
-  text-align: center;
-  padding: 32px 20px;
-  font-size: 0.8rem;
-  color: var(--clr-muted);
-  border-top: 1px solid rgba(245, 166, 35, 0.1);
-}
-
-footer a { color: var(--clr-secondary); text-decoration: none; }
-
-/* ── Age Gate Banner ──────────────────────────────────── */
+/* ── Age gate + footer ───────────────────────────────── */
 .age-gate {
-  background: var(--clr-accent);
-  color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   text-align: center;
-  padding: 8px 16px;
-  font-size: 0.8rem;
-  font-weight: 600;
+  padding: 6px 12px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
 }
 
-/* ── Responsive ───────────────────────────────────────── */
-@media (max-width: 600px) {
-  .hero { padding: 40px 16px 32px; }
-  .cta-btn { padding: 14px 36px; font-size: 1rem; }
-  section { padding: 36px 16px; }
+.footer-legal {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  text-align: center;
+  padding: 10px 12px;
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+/* ── Mobile tweaks ───────────────────────────────────── */
+@media (max-width: 480px) {
+  .cta-btn {
+    padding: 16px 40px;
+    font-size: 1.05rem;
+  }
 }

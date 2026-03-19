@@ -1,9 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import CTABox from '../components/CTABox.astro';
 
-const title = 'Bet on IPL 2025 with Babu88 — Claim Your Cricket Bonus';
-const description = 'Join Babu88 for the best IPL 2025 betting odds, live cricket markets, and exclusive welcome bonus. Fast deposits, instant withdrawals, and 24/7 support for Indian players.';
+const title = 'Babu88 — Bet on IPL 2025';
+const description = 'Join Babu88 for the best IPL 2025 betting odds and exclusive cricket bonus.';
 
 const schemaOrg = {
   '@context': 'https://schema.org',
@@ -12,21 +11,17 @@ const schemaOrg = {
       '@type': 'Organization',
       name: 'Babu88',
       url: 'https://ipl-cricket-in.netlify.app',
-      description: 'Babu88 — Trusted IPL cricket betting platform for Indian players.',
     },
     {
       '@type': 'WebSite',
-      name: 'Babu88 IPL Cricket',
+      name: 'Babu88',
       url: 'https://ipl-cricket-in.netlify.app',
     },
     {
       '@type': 'SportsEvent',
       name: 'Indian Premier League 2025',
       sport: 'Cricket',
-      location: {
-        '@type': 'Country',
-        name: 'India',
-      },
+      location: { '@type': 'Country', name: 'India' },
     },
   ],
 };
@@ -37,83 +32,28 @@ const schemaOrg = {
     <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
   </Fragment>
 
-  <!-- Age Gate -->
-  <div class="age-gate">18+ | Play Responsibly | Gambling involves risk</div>
+  <main class="lander">
+    <div class="age-gate">18+ | Play Responsibly</div>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="container">
+    <div class="lander-bg">
       <img
         src="/images/ipl-cricket-hero.webp"
-        alt="IPL 2025 cricket stadium under floodlights with Babu88 branding"
-        class="hero-img"
-        width="960"
-        height="400"
+        alt="IPL 2025 cricket stadium under floodlights"
+        width="1920"
+        height="1080"
         loading="eager"
+        fetchpriority="high"
       />
-      <h1>IPL 2025 Betting <span>on Babu88</span></h1>
-      <p class="subtitle">Best odds on every IPL match. Live markets, fast payouts, exclusive bonuses.</p>
-      <CTABox text="Claim Your IPL Bonus" href="#signup" />
     </div>
-  </section>
 
-  <!-- Video Section -->
-  <section>
-    <div class="container">
-      <h2>Watch. Bet. Win.</h2>
-      <div class="video-wrapper">
-        <!-- Replace with your embed: <iframe src="..." ...></iframe> -->
-        Video embed placeholder — replace with IPL promo video
-      </div>
-      <div style="text-align:center;">
-        <CTABox text="Start Betting Now" href="#signup" />
-      </div>
+    <div class="lander-content">
+      <h1>Bet on <span>IPL 2025</span></h1>
+      <p class="tagline">Best odds. Instant payouts. Exclusive bonus.</p>
+      <a class="cta-btn" href="#signup" rel="noopener noreferrer" target="_blank">
+        Join Babu88 Now
+      </a>
     </div>
-  </section>
 
-  <!-- Features -->
-  <section>
-    <div class="container">
-      <h2>Why Bet IPL on Babu88?</h2>
-      <div class="features">
-        <div class="feature-card">
-          <img src="/images/ipl-live-markets.webp" alt="Live IPL cricket betting markets on mobile screen" class="feature-img" width="240" height="160" loading="lazy" />
-          <h3>Live IPL Markets</h3>
-          <p>Ball-by-ball odds on every match. Bet on top batsman, total runs, match winner, and 50+ markets per game.</p>
-        </div>
-        <div class="feature-card">
-          <img src="/images/ipl-instant-deposits.webp" alt="UPI and Paytm instant deposit for IPL betting" class="feature-img" width="240" height="160" loading="lazy" />
-          <h3>Instant Deposits</h3>
-          <p>UPI, Paytm, PhonePe, and bank transfer. Funds hit your account in seconds so you never miss a bet.</p>
-        </div>
-        <div class="feature-card">
-          <img src="/images/ipl-fast-withdrawals.webp" alt="Fast cricket betting withdrawal to bank account" class="feature-img" width="240" height="160" loading="lazy" />
-          <h3>Fast Withdrawals</h3>
-          <p>Cash out your winnings quickly. Most withdrawals processed within hours, not days.</p>
-        </div>
-        <div class="feature-card">
-          <img src="/images/ipl-welcome-bonus.webp" alt="IPL cricket welcome bonus celebration with confetti" class="feature-img" width="240" height="160" loading="lazy" />
-          <h3>IPL Welcome Bonus</h3>
-          <p>New to Babu88? Get an exclusive cricket bonus on your first deposit. More runs, more rewards.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Bottom CTA -->
-  <section class="cta-strip">
-    <p>The IPL season is live — don't miss your chance to win big.</p>
-    <CTABox text="Join Babu88 Now" href="#signup" />
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>Gambling can be addictive. Play responsibly. 18+ only.</p>
-      <p style="margin-top:8px;">
-        &copy; 2025 Babu88. All rights reserved. |
-        <a href="#signup">Affiliate Disclosure</a>
-      </p>
-    </div>
-  </footer>
+    <div class="footer-legal">&copy; 2025 Babu88 &middot; Gambling can be addictive. Play responsibly.</div>
+  </main>
 </BaseLayout>

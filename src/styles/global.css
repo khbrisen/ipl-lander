@@ -117,9 +117,24 @@ section h2 {
   border: 1px solid rgba(245, 166, 35, 0.15);
 }
 
-.feature-card .icon {
-  font-size: 2rem;
-  margin-bottom: 12px;
+/* ── Hero Image ───────────────────────────────────────── */
+.hero-img {
+  width: 100%;
+  max-width: 960px;
+  height: auto;
+  border-radius: var(--radius);
+  margin-bottom: 24px;
+  object-fit: cover;
+}
+
+/* ── Feature Card Image ──────────────────────────────── */
+.feature-img {
+  width: 100%;
+  max-width: 240px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 14px;
 }
 
 .feature-card h3 {

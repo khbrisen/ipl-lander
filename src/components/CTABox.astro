@@ -1,0 +1,12 @@
+---
+interface Props {
+  text?: string;
+  href?: string;
+}
+
+const { text = 'Join Babu88 Now', href = '#signup' } = Astro.props;
+---
+
+<a class="cta-btn" href={href} rel="noopener noreferrer" target="_blank">
+  {text}
+</a>
